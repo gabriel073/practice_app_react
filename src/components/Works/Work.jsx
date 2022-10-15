@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import shortId from "short-id";
 
 const Work = () => {
   const [tasks, setTasks] = useState([]);
-  const [showTasks, setShowTasks] = useState(true);
+  const [showForm, setShowForm] = useState(true);
 
   const createTask = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const Work = () => {
 };
 
 const handleToggleForm = () => {
-    setShowForm(!showForm);
+   setShowForm(!showForm);
 };
 
 const showButtonMessage = () =>{
@@ -34,7 +34,7 @@ const showButtonMessage = () =>{
       <Row>
         <Button onClick={handleToggleForm}> {showButtonMessage()}</Button>
         {showForm && (
-            <Col md={6} xs={12}>
+            <Col md={6} xs={6}>
               <h3>Tasks</h3>
               <Form onSubmit={createTask}>
                 <Form.Group>
@@ -54,7 +54,7 @@ const showButtonMessage = () =>{
                 <Button type="submit">Crear Tarea</Button>
               </Form>
             </Col>
-        )}
+       )}
       </Row>
     </Container>
   );
